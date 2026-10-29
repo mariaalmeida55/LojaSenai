@@ -40,7 +40,7 @@ include 'topo.php';
 </div>
 </div>
 <div class="numero">
-<img src="assets/imagens/produto.png" alt="">
+<img src="assets/imagens/produtos.png" alt="">
 <div>
 <div class="valor"><?= $total_produtos ?></div>
 <div class="rotulo">produtos</div>
