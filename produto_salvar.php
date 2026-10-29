@@ -1,3 +1,4 @@
+
 <?php
 require_once 'conexao.php';
 
@@ -34,6 +35,10 @@ if ($id == '') {
         $id
     ]);
 }
+
+header('Location: produtos.php?msg=salvo');
+exit;
+
 
 header('Location: produtos.php?msg=salvo');
 exit;
