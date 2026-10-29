@@ -4,4 +4,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && docker-php-ext-install pdo_sqlite \
     && rm -rf /var/lib/apt/lists/*
 COPY . /var/www/html/
+RUN mkdir -p /var/www/html/banco \
+    && chown -R www-data:www-data /var/www/html/banco \
+    && chmod -R 775 /var/www/html/banco
 EXPOSE 80
