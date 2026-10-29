@@ -1,6 +1,5 @@
-
 <?php
-include 'conexao.php';
+require_once 'conexao.php';
 
 $id = $_POST['id'] ?? '';
 $cliente_id = $_POST['cliente_id'];
