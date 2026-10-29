@@ -6,14 +6,34 @@ $nome = $_POST['nome'] ?? '';
 $quantidade = $_POST['quantidade'] ?? 0;
 $valor_compra = $_POST['valor_compra'] ?? 0;
 $valor_venda = $_POST['valor_venda'] ?? 0;
- 
-if($id == ''){
-    $sql = $pdo -> prepare('INSERT INTO produto(nome, descricao, preco, imagem)VALUES (?, ?, ?, ?');
-    $sql -> execute ([$nome, $descricao, $preco, $imagem]);
- } else {
-    $sql = $pdo -> prepare ('UPDATE produto SET nome = ?, descricao = ?, preco = ?, imagem = ? WHERE id = ?');
-     $sql -> execute ([$nome, $descricao, $preco, $imagem, $id]);
- }
- 
- header('Location: produtos.php?msg=salvo');
- exit;
+
+if ($id == '') {
+    $sql = $pdo->prepare(
+        'INSERT INTO produto (nome, quantidade, valor_compra, valor_venda)
+         VALUES (?, ?, ?, ?)'
+    );
+
+    $sql->execute([
+        $nome,
+        $quantidade,
+        $valor_compra,
+        $valor_venda
+    ]);
+} else {
+    $sql = $pdo->prepare(
+        'UPDATE produto
+         SET nome = ?, quantidade = ?, valor_compra = ?, valor_venda = ?
+         WHERE id = ?'
+    );
+
+    $sql->execute([
+        $nome,
+        $quantidade,
+        $valor_compra,
+        $valor_venda,
+        $id
+    ]);
+}
+
+header('Location: produtos.php?msg=salvo');
+exit;
