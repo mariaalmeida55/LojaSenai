@@ -1,6 +1,5 @@
 <?php
-include 'conexao.php';
-include 'funcoes.php';
+require_once __DIR__ . '/conexao.php';
  
 $total_cliente = $pdo->query('SELECT COUNT(*) FROM cliente')->fetchColumn();
 $total_produtos = $pdo->query('SELECT COUNT(*) FROM produto')->fetchColumn();
